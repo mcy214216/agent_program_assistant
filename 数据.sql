@@ -1,9 +1,3 @@
-# agent_program_assistant
-#建立数据库mysql
-
-建立数据库：
-```
-CREATE DATABASE agenthistorl;
 CREATE TABLE IF NOT EXISTS agentmessages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     conversation_id VARCHAR(64) NOT NULL,          -- 会话唯一标识（可由前端提供或自动生成）
@@ -15,15 +9,8 @@ CREATE TABLE IF NOT EXISTS agentmessages (
     INDEX idx_conversation (conversation_id),
     INDEX idx_created (created_at)
 );
-```
-main.py 为后端代码  
-test.py 为mcp模块  
-frontend-str 为前端代码  
-
-要修改后端的数据库连接信息，请修改 main.py 中的数据库连接信息。  
-``` 
-
-MYSQL_USER, MYSQL_PASSWORD = "root", os.getenv("MYSQL_PASSWORD", "214216")
-DATABASE_URL = f"mysql+aiomysql://{MYSQL_USER}:{MYSQL_PASSWORD}@localhost:3306/agenthistorl"
-```
-
+use agenthistorl;
+SHOW TABLES;
+DESCRIBE agentmessages;
+# DROP TABLE conversation_messages;
+select * from agentmessages;
